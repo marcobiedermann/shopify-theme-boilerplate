@@ -1,0 +1,59 @@
+<h1>INDEX</h1>
+
+<h2>Collections</h2>
+
+<ul class="collections">
+  {% for collection in collections %}
+    <li>
+      <div class="collection">
+        <h3>{{ collection.title }}</h3>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+
+<h2>Products</h2>
+
+<ul class="products">
+  {% for product in collections['frontpage'].products %}
+    <li>
+      <div class="product">
+        <h3 class="product__title">{{ product.title }}</h3>
+        <div class="product__description">
+          {{ product.description }}
+        </div>
+
+        {% if product.featured_image %}
+          <img src="{{ product.featured_image | img_url }}">
+        {% endif %}
+
+        {% if product.images %}
+          <ul class="product__images">
+            {% for image in product.images %}
+              <li>
+                <img src="{{ image | img_url }}" class="product__image">
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if product.variants %}
+          <ul class="product__variants">
+            {% for variant in product.variants %}
+              <li>
+                <div class="product__variant">
+                  <h4>{{ variant.title }}</h4>
+                  <img src="{{ variant.featured_image.src | img_url }}">
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+
+
+{{ content_for_index }}

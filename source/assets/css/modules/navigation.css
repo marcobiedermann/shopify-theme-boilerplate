@@ -1,0 +1,18 @@
+:root {
+  --navigation-item-margin: 0.5em;
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
+  margin: calc(var(--navigation-item-margin) * -1);
+  padding: 0;
+}
+
+.navigation li {
+  margin: var(--navigation-item-margin);
+}
+
+.navigation a {
+  display: block;
+}

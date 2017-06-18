@@ -1,0 +1,10 @@
+.social {
+  list-style: none;
+  margin: -0.5em;
+  padding: 0;
+}
+
+.social li {
+  display: inline-block;
+  margin: 0.5em;
+}

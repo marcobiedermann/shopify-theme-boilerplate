@@ -1,0 +1,147 @@
+<h1>CUSTOMERS ADDRESSES</h1>
+
+<h2>New Address</h2>
+
+{% form 'customer_address', customer.new_address, class: 'form' %}
+
+  <div class="form__group">
+    <label for="">First Name</label>
+    <input type="text" name="address[first_name]" value="{{ form.first_name }}">
+  </div>
+
+  <div class="form__group">
+    <label for="">Last Name</label>
+    <input type="text" name="address[last_name]" value="{{ form.last_name }}">
+  </div>
+
+  <div class="form__group">
+    <label for="">Company</label>
+    <input type="text" name="address[company]" value="{{ form.company }}">
+  </div>
+
+  <div class="form__group">
+    <label for="">Address 1</label>
+    <input type="text" name="address[address1]" value="{{ form.address1 }}">
+  </div>
+
+  <div class="form__group">
+    <label for="">Address 2</label>
+    <input type="text" name="address[address2]" value="{{ form.address2 }}">
+  </div>
+
+  <div class="form__group">
+    <label for="">City</label>
+    <input type="text" name="address[city]" value="{{ form.city }}">
+  </div>
+
+  <div class="form__group">
+    <label for="">Country</label>
+    <select name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select>
+  </div>
+
+  <div class="form__group">
+    <label for="">Province</label>
+    <select name="address[province]" data-default="{{ form.province }}"></select>
+  </div>
+
+  <div class="form__group">
+    <label for="">Zip</label>
+    <select name="address[zip]" data-default="{{ form.zip }}"></select>
+  </div>
+
+  <div class="form__group">
+    <label for="">Phone</label>
+    <select name="address[phone]" data-default="{{ form.phone }}"></select>
+  </div>
+
+  <div class="form__group">
+    <div class="form__field">
+      <label for="address_default_address_new">Set as default</label>
+      {{ form.set_as_default_checkbox }}
+    </div>
+  </div>
+
+  <div class="form__group">
+    <input type="submit" class="button">
+  </div>
+
+{% endform %}
+
+<h2>My Addresses</h2>
+
+{% paginate customer.addresses by 12 %}
+
+  {% for address in customer.addresses %}
+
+    {% form 'customer_address', address, class: 'form' %}
+
+      <div class="form__group">
+        <label for="">First Name</label>
+        <input type="text" name="address[first_name]" value="{{ form.first_name }}">
+      </div>
+
+      <div class="form__group">
+        <label for="">Last Name</label>
+        <input type="text" name="address[last_name]" value="{{ form.last_name }}">
+      </div>
+
+      <div class="form__group">
+        <label for="">Company</label>
+        <input type="text" name="address[company]" value="{{ form.company }}">
+      </div>
+
+      <div class="form__group">
+        <label for="">Address 1</label>
+        <input type="text" name="address[address1]" value="{{ form.address1 }}">
+      </div>
+
+      <div class="form__group">
+        <label for="">Address 2</label>
+        <input type="text" name="address[address2]" value="{{ form.address2 }}">
+      </div>
+
+      <div class="form__group">
+        <label for="">City</label>
+        <input type="text" name="address[city]" value="{{ form.city }}">
+      </div>
+
+      <div class="form__group">
+        <label for="">Country</label>
+        <select name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select>
+      </div>
+
+      <div class="form__group">
+        <label for="">Province</label>
+        <select name="address[province]" data-default="{{ form.province }}"></select>
+      </div>
+
+      <div class="form__group">
+        <label for="">Zip</label>
+        <select name="address[zip]" data-default="{{ form.zip }}"></select>
+      </div>
+
+      <div class="form__group">
+        <label for="">Phone</label>
+        <select name="address[phone]" data-default="{{ form.phone }}"></select>
+      </div>
+
+      <div class="form__group">
+        <div class="form__field">
+          <label for="address_default_address_{{ form.id }}">Set as default</label>
+          {{ form.set_as_default_checkbox }}
+        </div>
+      </div>
+
+      <div class="form__group">
+        <input type="submit" class="button" value="Update Address">
+      </div>
+
+    {% endform %}
+
+  {% endfor %}
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+
+{% endpaginate %}

@@ -1,0 +1,12 @@
+:root {
+  --table-margin-vertical: 1.5em;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: var(--table-margin-vertical);
+  margin-top: var(--table-margin-vertical);
+  text-align: left;
+  width: 100%;
+}

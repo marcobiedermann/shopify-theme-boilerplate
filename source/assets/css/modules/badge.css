@@ -1,0 +1,18 @@
+:root {
+  --badge-content-background-color: var(--primary-color);
+}
+
+.badge {
+  position: relative;
+}
+
+.badge__content {
+  background-color: var(--badge-content-background-color);
+  border-radius: 999px;
+  bottom: 60%;
+  color: #fff;
+  font-size: 0.5em;
+  left: 60%;
+  padding: 0.125em 0.5em;
+  position: absolute;
+}

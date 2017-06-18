@@ -1,0 +1,36 @@
+<h1>CUSTOMERS ACCOUNT</h1>
+
+<h2>MY ORDERS</h2>
+
+{% paginate customer.orders by 12 %}
+
+  <table>
+    <thead>
+      <tr>
+        <th>Order Number</th>
+        <th>Date</th>
+        <th>Payment Status</th>
+        <th>Fulfillment Status</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in customer.orders %}
+        <tr>
+          <td>{{ order.name }}</td>
+          <td>{{ order.created_at }}</td>
+          <td>{{ order.financial_status_label }}</td>
+          <td>{{ order.fulfillment_status_label }}</td>
+          <td>{{ order.total_price | money }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+
+{% endpaginate %}
+
+<p><a href="/account/addresses">Addresses</a></p>

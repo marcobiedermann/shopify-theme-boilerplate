@@ -1,0 +1,53 @@
+<h1>{{ blog.title }}</h1>
+
+{% paginate blog.articles by 12 %}
+
+  <ul class="articles">
+    {% for article in blog.articles %}
+      <li>
+        <article class="article">
+          <header class="article__header">
+            <h2 class="article__title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+          </header>
+
+          {% if article.image %}
+            <figure>
+              <a href="{{ article.url }}">
+                <img src="{{ article.image | img_url: 'master' }}">
+              </a>
+            </figure>
+          {% endif %}
+
+          <div class="article__excerpt">
+            {% if article.excerpt.size > 0 %}
+              {{ article.excerpt }}
+            {% else %}
+              {{ article.content | strip_html | truncate: 160 }}
+            {% endif %}
+            <p><a href="{{ article.url }}">Read More</a></p>
+          </div>
+
+          <footer class="article__footer">
+            {% if article.tags.size > 0 %}
+              <div class="tags">
+                <ul>
+                  {% for tag in article.tags %}
+                    <li class="tag">
+                      <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          </footer>
+
+        </article>
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+
+{% endpaginate %}

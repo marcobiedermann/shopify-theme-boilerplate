@@ -1,0 +1,12 @@
+:root {
+  --paragraph-margin-vertical: 1.5em;
+}
+
+p {
+  margin-bottom: var(--paragraph-margin-vertical);
+  margin-top: var(--paragraph-margin-vertical);
+}
+
+.text--right {
+  text-align: right;
+}

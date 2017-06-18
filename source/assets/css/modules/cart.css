@@ -1,0 +1,28 @@
+.cart table {
+  border-collapse: separate;
+  border-spacing: 0 0.5em;
+}
+
+.cart tbody tr {
+  background-color: #fafafa;
+}
+
+.cart td,
+.cart th {
+  padding: 0.5em;
+}
+
+.cart tbody td:first-child {
+  text-align: center;
+}
+
+.cart tfoot td:last-child {
+  text-align: right;
+}
+
+.cart thead th:last-child,
+.cart thead th:nth-last-child(2),
+.cart tbody td:last-child,
+.cart tbody td:nth-last-child(2) {
+  text-align: right;
+}

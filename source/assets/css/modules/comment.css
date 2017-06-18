@@ -1,0 +1,10 @@
+:root {
+  --comments-margin-vertical: 1.5em;
+}
+
+.comments {
+  list-style: none;
+  margin-bottom: var(--comments-margin-vertical);
+  margin-top: var(--comments-margin-vertical);
+  padding: 0;
+}

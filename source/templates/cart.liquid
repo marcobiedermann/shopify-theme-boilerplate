@@ -1,0 +1,57 @@
+<h1>CART</h1>
+
+{% if cart.item_count > 0 %}
+  <form action="/cart" method="post" class="cart">
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>{{ 'cart.label.product' | t }}</th>
+          <th>{{ 'cart.label.quantity' | t }}</th>
+          <th>{{ 'cart.label.price' | t }}</th>
+          <th>{{ 'cart.label.total' | t }}</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="4"></td>
+          <td>Total: <strong>{{ cart.total_price | money }}</strong></td>
+        </tr>
+      </tfoot>
+      <tbody>
+        {% for item in cart.items %}
+          <tr>
+            <td>
+              <a href="/cart/change?line={{ forloop.index }}&quantity=0">
+                <svg class="icon">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ 'icons.svg' | asset_url }}#x-mark" />
+                </svg>
+                <span class="visually-hidden">Remove</span>
+              </a>
+            </td>
+            <td>
+              <img src="{{ item | img_url: '100px' }}" alt="{{ item.title }}">
+              <a href="{{ item.url }}">{{ item.product.title }}</a>
+            </td>
+            <td>
+              <input type="number" name="updates[]" value="{{ item.quantity}}" min="0" pattern="[0-9]*">
+            </td>
+            <td>
+              {{ item.price | money }}
+            </td>
+            <td>
+              <strong>{{ item.line_price | money }}</strong>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <input type="submit" name="update" value="Update Cart" class="button">
+    <input type="submit" name="checkout" value="Check Out" class="button">
+
+  </form>
+{% else %}
+  Your cart is currently empty.
+{% endif %}

@@ -1,0 +1,8 @@
+:root {
+  --main-padding-vertical: 3em;
+}
+
+.site__main {
+  padding-bottom: var(--main-padding-vertical);
+  padding-top: var(--main-padding-vertical);
+}

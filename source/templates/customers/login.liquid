@@ -1,0 +1,48 @@
+<h1>CUSTOMERS LOGIN</h1>
+
+<div class="login">
+
+  <h2>Login</h2>
+
+  {% form 'customer_login', class: 'form' %}
+
+    {{ form.errors | default_errors }}
+
+    <div class="form__group">
+      <label for="login-email">Email Address</label>
+      <input type="email" name="customer[email]" id="login-email">
+    </div>
+
+    <div class="form__group">
+      <label for="login-password">Password</label>
+      <input type="password" name="customer[password]" id="login-password">
+    </div>
+
+    <div class="form__group">
+      <input type="submit" value="Sign In" class="button">
+    </div>
+
+  {% endform %}
+
+</div>
+
+<div class="forgot-password">
+
+  <h2>Forgot Password</h2>
+
+  {% form 'recover_customer_password', class: 'form' %}
+
+    {{ form.errors | default_errors }}
+
+    <div class="form__group">
+      <label for="forgot-password-email">Email Address</label>
+      <input type="email" name="email" id="forgot-password-email">
+    </div>
+
+    <div class="form__group">
+      <input type="submit" value="Submit" class="button">
+    </div>
+
+  {% endform %}
+
+</div>

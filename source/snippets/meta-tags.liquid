@@ -1,0 +1,29 @@
+{%- assign og_description = page_description | default: shop.description | default: shop.name -%}
+{%- assign og_title = page_title  -%}
+{%- assign og_type = 'website' -%}
+{%- assign og_url = canonical_url -%}
+
+{%- if template.name == 'product' -%}
+  {%- assign og_title = product.title | strip_html -%}
+  {%- assign og_type = 'product' -%}
+{%- elsif template.name == 'article' -%}
+  {%- assign og_description = article.excerpt_or_content | strip_html -%}
+  {%- assign og_title = article.title | strip_html -%}
+  {%- assign og_type = 'article' -%}
+{%- elsif template.name == 'password' -%}
+  {%- assign og_description = shop.description | default: shop.name -%}
+  {%- assign og_title = shop.name -%}
+  {%- assign og_url = shop.url -%}
+{%- endif -%}
+
+<meta property="og:description" content="{{ og_description }}">
+<meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:title" content="{{ og_title }}">
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:url" content="{{ og_url }}">
+
+
+<meta name="twitter:site" content="@{{ settings.social.twitter.username }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ og_title }}">
+<meta name="twitter:description" content="{{ og_description }}">

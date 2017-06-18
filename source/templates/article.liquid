@@ -1,0 +1,85 @@
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  <header class="article__header">
+    <h1 class="article__title">{{ article.title }}</h1>
+    <span class="article__author">{{ article.author }}</span>
+    <span class="article__date">{{ article.published_at }}</span>
+  </header>
+
+  <div class="article__body">
+    {{ article.content }}
+  </div>
+
+  <footer class="article__footer">
+    {% if article.tags.size > 0 %}
+      <div class="tags">
+        <ul>
+          {% for tag in article.tags %}
+            <li class="tag">
+              <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </footer>
+
+  {% paginate article.comments by 5 %}
+
+    <ul class="comments" id="comments">
+      {% for comment in article.comments %}
+        <li class="comment media" id="{{ comment.id }}">
+          <div class="media__object media__object--left">
+            <img src="https://www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}" />
+          </div>
+          <div class="media__body">
+            <h3 class="comment__author">{{ comment.author }}</h3>
+            <p class="comment__date">{{ comment.created_at }}</p>
+            <div class="comment__content">
+              {{ comment.content }}
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% if paginate.pages > 1 %}
+      {% include 'pagination' %}
+    {% endif %}
+
+  {% endpaginate %}
+
+  {% if blog.comments_enabled? %}
+
+    <h2>Post a comment</h2>
+
+    {% form 'new_comment', article, id: 'comment_form', class: 'form' %}
+
+      {{ form.errors | default_errors }}
+
+      <div class="form__group">
+        <label for="comment-name">Name</label>
+        <input type="text" name="comment[author]" id="comment-name" value="{{ form.author }}">
+      </div>
+
+      <div class="form__group">
+        <label for="comment-email">E-Mail</label>
+        <input type="email" name="comment[email]" id="comment-email" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
+      </div>
+
+      <div class="form__group">
+        <label for="comment-body">Comment</label>
+        <textarea name="comment[body]" id="comment-body">{{ form.body }}</textarea>
+      </div>
+
+      <div class="form__group">
+        <input type="submit" value="Post Comment" class="button">
+      </div>
+
+    {% endform %}
+
+  {% endif %}
+
+</article>
+
+<p><a href="{{ blog.url }}">Back to {{ blog.title }}</a></p>

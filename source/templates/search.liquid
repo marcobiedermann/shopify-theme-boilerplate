@@ -1,0 +1,35 @@
+<h1>SEARCH</h1>
+
+<form action="/search" method="get" class="search form" role="search">
+
+  <div class="form__group">
+    <div class="form__field">
+      <input type="search" name="q" placeholder="Search …" value="{{ search.terms | escape }}" autofocus>
+      <input type="submit" value="Search">
+    </div>
+  </div>
+
+</form>
+
+{% if search.performed %}
+
+  {% paginate search.results by 10 %}
+    <ul class="search__results">
+      {% for result in search.results %}
+        <li>
+          <div class="search__result">
+            <h3><a href="{{ result.url }}">{{ result.title | highlight: search.terms }}</a></h3>
+            <div class="result__description">
+              {{ result.content | highlight: search.terms }}
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% if paginate.pages > 1 %}
+      {% include 'pagination' %}
+    {% endif %}
+
+  {% endpaginate %}
+{% endif %}

@@ -1,0 +1,33 @@
+<div class="collection">
+  <h1>{{ collection.title }}</h1>
+
+  <label for="sort-by">{{ 'collections.sorting.title' | t }}</label>
+  <select id="sort-by">
+    <option value="featured">{{ 'collections.sorting.featured' | t }}</option>
+    <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
+    <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>
+    <option value="title-descending">{{ 'collections.sorting.za' | t }}</option>
+    <option value="price-ascending">{{ 'collections.sorting.price_ascending' | t }}</option>
+    <option value="price-descending">{{ 'collections.sorting.price_descending' | t }}</option>
+    <option value="date-descending">{{ 'collections.sorting.date_descending' | t }}</option>
+    <option value="date-ascending">{{ 'collections.sorting.date_ascending' | t }}</option>
+  </select>
+
+  {% paginate collection.products by 12 %}
+
+    <ul class="products">
+      {% for product in collection.products %}
+        <li>
+          {% include 'product', product: product %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% if paginate.pages > 1 %}
+      {% include 'pagination' %}
+    {% endif %}
+
+  {% endpaginate %}
+
+</div>
+

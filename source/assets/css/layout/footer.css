@@ -1,0 +1,23 @@
+:root {
+  --footer-background-color: var(--base-color);
+  --footer-color: var(--base-background-color);
+  --footer-padding-vertical: 1em;
+}
+
+.site__footer {
+  background-color: var(--footer-background-color);
+  color: var(--footer-color);
+  padding-bottom: var(--footer-padding-vertical);
+  padding-top: var(--footer-padding-vertical);
+}
+
+.site__footer .grid {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.site__footer .icon {
+  fill: #fafafa;
+}

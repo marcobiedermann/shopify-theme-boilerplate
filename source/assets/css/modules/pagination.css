@@ -1,0 +1,22 @@
+:root {
+  --pagination-margin-vertical: 1.5em;
+  --pagination-anchor-padding-horizontal: 0.5em;
+  --pagination-anchor-padding-vertical: 0.25em;
+}
+
+.pagination {
+  list-style: none;
+  margin-bottom: var(--pagination-margin-vertical);
+  margin-top: var(--pagination-margin-vertical);
+  padding: 0;
+  text-align: center;
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.pagination a {
+  display: block;
+  padding: var(--pagination-anchor-padding-vertical) var(--pagination-anchor-padding-horizontal);
+}

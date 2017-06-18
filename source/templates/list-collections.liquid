@@ -1,0 +1,13 @@
+<h1>{{ page_title }}</h1>
+
+<ul>
+  {% for collection in collections %}
+    <li>
+      <div class="collection">
+        <h3 class="collection__title">
+          <a href="{{ collection.url }}">{{ collection.title }}</a>
+        </h3>
+      </div>
+    </li>
+  {% endfor %}
+</ul>

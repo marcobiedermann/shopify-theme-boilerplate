@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{ shop.locale }}">
+<head>
+  <meta charset="utf-8">
+  <title>{{ seo_title }}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% include 'meta-tags' %}
+
+  <link href="{{ canonical_url }}" rel="canonical">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i" rel="stylesheet">
+  <link href="{{ 'style.css' | asset_url }}" rel="stylesheet">
+
+  {{ content_for_header }}
+</head>
+<body>
+
+  {% section 'header' %}
+
+  <div class="site__content">
+
+    <div class="grid">
+
+      <main class="site__main">
+
+        {% include 'breadcrumb' %}
+
+        {{ content_for_layout }}
+
+      </main>
+
+    </div>
+
+  </div>
+
+  {% section 'footer' %}
+
+  <script src="{{ 'script.js' | asset_url }}" async></script>
+
+</body>
+</html>

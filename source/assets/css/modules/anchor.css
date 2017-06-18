@@ -1,0 +1,9 @@
+:root {
+  --anchor-color: inherit;
+  --anchor-text-decoration: none;
+}
+
+a {
+  color: var(--anchor-color);
+  text-decoration: var(--anchor-text-decoration);
+}

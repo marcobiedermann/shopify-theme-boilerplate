@@ -1,0 +1,8 @@
+:root {
+  --breadcrumb-margin-vertical: 1.5em;
+}
+
+.breadcrumb {
+  margin-bottom: var(--breadcrumb-margin-vertical);
+  margin-top: var(--breadcrumb-margin-vertical);
+}

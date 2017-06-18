@@ -1,0 +1,23 @@
+:root {
+  --header-background-color: var(--base-color);
+  --header-color: var(--base-background-color);
+  --header-padding-vertical: 1em;
+}
+
+.site__header {
+  background-color: var(--header-background-color);
+  color: var(--header-color);
+  padding-bottom: var(--header-padding-vertical);
+  padding-top: var(--header-padding-vertical);
+}
+
+.site__header .grid {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.site__header .icon {
+  fill: #fafafa;
+}

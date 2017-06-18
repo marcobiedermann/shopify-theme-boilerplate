@@ -1,0 +1,24 @@
+:root {
+  --media-object-margin: 1em;
+}
+
+.media {
+  display: flex;
+}
+
+.media__object--left {
+  margin-right: var(--media-object-margin);
+}
+
+.media__object--right {
+  margin-left: var(--media-object-margin);
+  order: 1;
+}
+
+.media__body {
+  flex-grow: 1;
+}
+
+.media__body :first-child {
+  margin-top: 0;
+}

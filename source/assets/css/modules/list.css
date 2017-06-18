@@ -1,0 +1,11 @@
+:root {
+  --list-margin-vertical: 1.5em;
+  --list-padding-left: 1.5em;
+}
+
+ol,
+ul {
+  margin-bottom: var(--list-margin-vertical);
+  margin-top: var(--list-margin-vertical);
+  padding-left: var(--list-padding-left);
+}

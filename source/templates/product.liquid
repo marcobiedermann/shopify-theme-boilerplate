@@ -1,0 +1,74 @@
+<div class="product" itemscope itemtype="http://schema.org/Product">
+  <div class="media">
+
+    <div class="media__object media__object--left">
+
+      {% if product.featured_image %}
+        <img src="{{ product.featured_image | img_url: '600x600' }}">
+      {% endif %}
+
+    </div>
+
+    <div class="media__body">
+
+      <header class="product__header">
+
+        <h1 class="product__title" itemprop="name">{{ product.title }}</h1>
+        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+          {% if product.compare_at_price > product.price %}
+            <span class="product__compare-at-price"><s>{{ product.compare_at_price | money }}</s></span>
+            <span class="product__on-sale">On Sale</span>
+          {% endif %}
+          <span class="priduct__price" itemprop="price">{{ product.price | money }}</span>
+        </div>
+
+      </header>
+      <div class="product__description" itemprop="description">
+        {{ product.description }}
+      </div>
+
+      <form action="/cart/add" method="post" enctype="multipart/form-data">
+
+        <select name="id">
+          {% for variant in product.variants %}
+            <option value="{{ variant.id }}">{{ variant.title }}</option>
+          {% endfor %}
+        </select>
+
+        {% if product.available %}
+          <input type="submit" value="Add to cart" class="button">
+        {% else %}
+          <input type="submit" value="Sold out" class="button" disabled>
+        {% endif %}
+      </form>
+
+    </div>
+
+  </div>
+
+
+  {% if product.images %}
+    <ul class="product__images">
+      {% for image in product.images %}
+        <li>
+          <img src="{{ image | img_url }}" class="product__image">
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if product.variants %}
+    <ul class="product__variants">
+      {% for variant in product.variants %}
+        <li>
+          <div class="product__variant">
+            <h4>{{ variant.title }}</h4>
+            <img src="{{ variant.featured_image.src | img_url }}">
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+</div>
+

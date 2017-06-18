@@ -1,0 +1,17 @@
+:root {
+  --button-background-color: var(--base-color);
+  --button-color: var(--base-background-color);
+  --button-padding-horizontal: 1em;
+  --button-padding-vertical: 0.25em;
+}
+
+.button {
+  background-color: var(--button-background-color);
+  color: var(--button-color);
+  display: inline-block;
+  padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+}
+
+.button[disabled] {
+  cursor: not-allowed;
+}

@@ -1,0 +1,32 @@
+<h1>{{ page.title }}</h1>
+
+{{ page.content }}
+
+{% form 'contact', class: 'form' %}
+
+  {% if form.posted_successfully? %}
+    {{ 'contact.form.post_success' | t }}
+  {% endif %}
+
+  {{ form.errors | default_errors }}
+
+  <div class="form__group">
+    <label for="contact-name">{{ 'contact.form.name' | t }}</label>
+    <input type="text" name="contact[name]" id="contact-name" required value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+  </div>
+
+  <div class="form__group">
+    <label for="contact-email">{{ 'contact.form.email' | t }}</label>
+    <input type="email" name="contact[email]" id="contact-email" autocorrect="off" autocapitalize="off" required value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+  </div>
+
+  <div class="form__group">
+    <label for="contact-message">{{ 'contact.form.message' | t }}</label>
+    <textarea name="contact[body]" id="contact-message" required>{% if form.body %}{{ form.body }}{% endif %}</textarea>
+  </div>
+
+  <div class="form__group">
+    <input type="submit" value="{{ 'contact.form.submit' | t }}" class="button">
+  </div>
+
+{% endform %}

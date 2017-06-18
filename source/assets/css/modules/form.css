@@ -1,0 +1,73 @@
+:root {
+  --form-group-margin: 1em;
+  --form-input-background-color: var(--base-background-color);
+  --form-input-padding-horizontal: 0.5em;
+  --form-input-padding-vertical: 0.25em;
+}
+
+input,
+select,
+textarea {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+[type='search'] {
+  appearance: textfield;
+}
+
+[type='submit'] {
+  appearance: button;
+  cursor: pointer;
+}
+
+select {
+  appearance: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.form {
+  margin: calc(var(--form-group-margin) * -1);
+}
+
+.form [type='email'],
+.form [type='password'],
+.form [type='search'],
+.form [type='text'],
+.form select,
+.form textarea {
+  background-color: var(--form-input-background-color);
+  border: 1px solid #1b1d20;
+  flex-grow: 1;
+  padding: var(--form-input-padding-vertical) var(--form-input-padding-horizontal);
+  width: 100%;
+}
+
+.form [type='submit'] {
+  float: right;
+}
+
+.form__group {
+  clear: both;
+  margin: var(--form-group-margin);
+  overflow: hidden;
+}
+
+.form__field {
+  align-items: center;
+  display: flex;
+}
+
+.form__field [type='checkbox'],
+.form__field [type='radio'] {
+  order: -1;
+  margin-right: 0.5em;
+}

@@ -1,0 +1,48 @@
+<header class="site__header">
+
+  <div class="grid">
+
+    <nav class="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <ul>
+        {% for link in linklists.main-menu.links %}
+          <li>
+            <a href="{{ link.url }}" itemprop="url"><span itemprop="name">{{ link.title }}</span></a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    {% if shop.customer_accounts_enabled %}
+      <ul>
+        {% if customer %}
+          <li>
+            <a href="/account">Your Account</a>
+          </li>
+          <li>
+            <a href="/account/logout">Logout</a>
+          </li>
+        {% else %}
+          <li>
+            <a href="/account/login">Login</a>
+          </li>
+          <li>
+            <a href="/account/register">Register</a>
+          </li>
+        {% endif %}
+        <li>
+          <a href="/cart" class="badge">
+            <svg class="icon">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ 'icons.svg' | asset_url }}#shopping-cart" />
+            </svg>
+            <span class="visually-hidden">Cart</span>
+            {% if cart.item_count > 0 %}
+              <span class="badge__content">{{ cart.item_count }}</span>
+            {% endif %}
+          </a>
+        </li>
+      </ul>
+    {% endif %}
+
+  </div>
+
+</header>

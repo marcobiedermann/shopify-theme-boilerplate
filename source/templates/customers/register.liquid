@@ -1,0 +1,35 @@
+<div class="register">
+
+  <h1>Register</h1>
+
+  {% form 'create_customer', class: 'register form' %}
+
+    {{ form.errors | default_errors }}
+
+    <div class="form__group">
+      <label for="register-firstname">First Name</label>
+      <input type="text" value="" name="customer[first_name]" id="register-firstname">
+    </div>
+
+    <div class="form__group">
+      <label for="register-lastname">Last Name</label>
+      <input type="text" value="" name="customer[last_name]" id="register-lastname">
+    </div>
+
+    <div class="form__group">
+      <label for="register-email">Email Address</label>
+      <input type="email" value="" name="customer[email]" id="register-email">
+    </div>
+
+    <div class="form__group">
+      <label for="register-password">Password</label>
+      <input type="password" value="" name="customer[password]" id="register-password">
+    </div>
+
+    <div class="form__group">
+      <input type="submit" value="Register" class="button">
+    </div>
+
+  {% endform %}
+
+</div>

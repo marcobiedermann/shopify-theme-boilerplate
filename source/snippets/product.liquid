@@ -1,0 +1,21 @@
+<div class="product" itemscope itemtype="http://schema.org/Product">
+  <!--
+  <pre>
+    {{ product | json }}
+  </pre>
+  -->
+  <figure>
+    <a href="{{ product.url }}" itemprop="url"><img data-src="{{ product.featured_image.src | img_url: '600x600' }}" class="lazyload"></a>
+    <figcaption class="product__caption">
+      <h3 class="product__title"><a href="{{ product.url }}"><span itemprop="name">{{ product.title }}</span></a></h3>
+      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        {% if product.compare_at_price > product.price %}
+          <span class="product__compare-at-price"><s>{{ product.compare_at_price | money }}</s></span>
+          <span class="product__on-sale">On Sale</span>
+        {% endif %}
+        <span class="priduct__price" itemprop="price">{{ product.price | money }}</span>
+      </div>
+      <span class="product__sold-out">{{ product.sold_out }}</span>
+    </figcaption>
+  </figure>
+</div>
