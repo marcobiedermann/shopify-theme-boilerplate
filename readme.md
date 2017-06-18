@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/marcobiedermann/marcobiedermann.svg)](https://travis-ci.org/marcobiedermann/marcobiedermann)
-[![dependencies Status](https://david-dm.org/marcobiedermann/marcobiedermann/status.svg)](https://david-dm.org/marcobiedermann/marcobiedermann)
-[![devDependencies Status](https://david-dm.org/marcobiedermann/marcobiedermann/dev-status.svg)](https://david-dm.org/marcobiedermann/marcobiedermann?type=dev)
+[![Build Status](https://travis-ci.org/marcobiedermann/shopify-theme-boilerplate.svg)](https://travis-ci.org/marcobiedermann/shopify-theme-boilerplate)
+[![dependencies Status](https://david-dm.org/marcobiedermann/shopify-theme-boilerplate/status.svg)](https://david-dm.org/marcobiedermann/shopify-theme-boilerplate)
+[![devDependencies Status](https://david-dm.org/marcobiedermann/shopify-theme-boilerplate/dev-status.svg)](https://david-dm.org/marcobiedermann/shopify-theme-boilerplate?type=dev)
 
 # Shopify Theme Boilerplate
