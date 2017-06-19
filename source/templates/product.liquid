@@ -4,7 +4,7 @@
     <div class="media__object media__object--left">
 
       {% if product.featured_image %}
-        <img src="{{ product.featured_image | img_url: '600x600' }}">
+        <img src="{{ product.featured_image | img_url: '600x600' }}" alt="">
       {% endif %}
 
     </div>
@@ -65,7 +65,7 @@
       {% for variant in product.variants %}
         <li>
           <div class="product__variant">
-            <h4>{{ variant.title }}</h4>
+            <h2 class="product__variant__title">{{ variant.title }}</h2>
             <img src="{{ variant.featured_image.src | img_url }}">
           </div>
         </li>
