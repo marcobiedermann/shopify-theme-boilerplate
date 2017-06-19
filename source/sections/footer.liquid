@@ -7,9 +7,11 @@
     {% form 'customer', class: 'form' %}
       {{ form.errors | default_errors }}
 
-      {% if form.posted_successfully? %}
-        <p>Success</p>
-      {% endif %}
+      <div aria-live="polite">
+        {% if form.posted_successfully? %}
+          <p>Success</p>
+        {% endif %}
+      </div>
 
       <input type="hidden" name="contact[tags]" value="newsletter">
 
