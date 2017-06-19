@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ shop.locale }}">
+<html lang="{{ shop.locale }}" class="no-js">
 <head>
   <meta charset="utf-8">
   <title>{{ seo_title }}</title>
@@ -9,6 +9,11 @@
   {% endif %}
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script>
+    // remove no-js and add 'js' to the HTML
+    document.documentElement.className = document.documentElement.className.replace('no-js','js');
+  </script>
 
   {% include 'meta-tags' %}
 
@@ -26,7 +31,7 @@
 
     <div class="grid">
 
-      <main class="site__main">
+      <main class="site__main" aria-label="content">
 
         {% include 'breadcrumb' %}
 

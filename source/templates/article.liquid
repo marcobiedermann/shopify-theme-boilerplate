@@ -26,7 +26,7 @@
 
   {% paginate article.comments by 5 %}
 
-    <ul class="comments" id="comments">
+    <ul class="comments" id="comments" aria-label="Comments">
       {% for comment in article.comments %}
         <li class="comment media" id="{{ comment.id }}">
           <div class="media__object media__object--left">

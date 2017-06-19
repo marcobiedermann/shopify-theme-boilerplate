@@ -1,4 +1,4 @@
-<h1>INDEX</h1>
+<h1>Index</h1>
 
 <h2>Collections</h2>
 
@@ -28,7 +28,7 @@
         {% endif %}
 
         {% if product.images %}
-          <ul class="product__images">
+          <ul class="product__images" aria-label="{{ product.title }} Images">
             {% for image in product.images %}
               <li>
                 <img src="{{ image | img_url }}" class="product__image">

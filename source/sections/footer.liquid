@@ -7,23 +7,28 @@
     {% form 'customer', class: 'form' %}
       {{ form.errors | default_errors }}
 
-      {% if form.posted_successfully? %}
-        <p>Success</p>
-      {% endif %}
+      <div aria-live="polite">
+        {% if form.posted_successfully? %}
+          <p>Success</p>
+        {% endif %}
+      </div>
 
       <input type="hidden" name="contact[tags]" value="newsletter">
 
       <div class="form__group">
         <div class="form__field">
-          <input type="email" name="contact[email]" value="{% if customer %}{{ customer.email }}{% endif %}" autocorrect="off"
+          <label for="newsletter-email" class="visually-hidden">
+            Your email
+          </label>
+          <input type="email" id="newsletter-email" name="contact[email]" value="{% if customer %}{{ customer.email }}{% endif %}" autocorrect="off"
             autocapitalize="off">
-            <input type="submit" name="commit" value="Subscribe">
+          <input type="submit" name="commit" value="Subscribe">
         </div>
       </div>
 
     {% endform %}
 
-    <nav class="navigation">
+    <nav class="navigation" aria-label="footer">
       <ul>
         {% for link in linklists.footer.links %}
           <li>
@@ -36,34 +41,34 @@
     <ul class="social">
       <li>
         <a href="#" target="_blank">
-          <svg class="icon">
+          <svg class="icon" aria-hidden="true">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ 'icons.svg' | asset_url }}#facebook" />
           </svg>
-          <span class="visually-hidden">Facebook</span>
+          <span class="visually-hidden">Friend us on Facebook</span>
         </a>
       </li>
       <li>
         <a href="#" target="_blank">
-          <svg class="icon">
+          <svg class="icon" aria-hidden="true">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ 'icons.svg' | asset_url }}#instagram" />
           </svg>
-          <span class="visually-hidden">Instagram</span>
+          <span class="visually-hidden">Follow us on Instagram</span>
         </a>
       </li>
       <li>
         <a href="#" target="_blank">
-          <svg class="icon">
+          <svg class="icon" aria-hidden="true">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ 'icons.svg' | asset_url }}#pinterest" />
           </svg>
-          <span class="visually-hidden">Pinterest</span>
+          <span class="visually-hidden">Follow us on Pinterest</span>
         </a>
       </li>
       <li>
         <a href="#" target="_blank">
-          <svg class="icon">
+          <svg class="icon" aria-hidden="true">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ 'icons.svg' | asset_url }}#twitter" />
           </svg>
-          <span class="visually-hidden">Twitter</span>
+          <span class="visually-hidden">Follow us on Twitter</span>
         </a>
       </li>
     </ul>

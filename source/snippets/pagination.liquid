@@ -1,17 +1,19 @@
-<ul class="pagination">
-  {% if paginate.previous.is_link %}
-    <li>
-      <a href="{{ paginate.previous.url }}" rel="prev">{{ paginate.previous.title }}</a>
-    </li>
-  {% endif %}
+<nav aria-label="pagination">
+  <ul class="pagination">
+    {% if paginate.previous.is_link %}
+      <li>
+        <a href="{{ paginate.previous.url }}" rel="prev">{{ paginate.previous.title }}</a>
+      </li>
+    {% endif %}
 
-  <li>
-    <span>{{ paginate.current_page }}</span>
-  </li>
-
-  {% if paginate.next.is_link %}
     <li>
-      <a href="{{ paginate.next.url }}" rel="next">{{ paginate.next.title }}</a>
+      <span>{{ paginate.current_page }}</span>
     </li>
-  {% endif %}
-</ul>
+
+    {% if paginate.next.is_link %}
+      <li>
+        <a href="{{ paginate.next.url }}" rel="next">{{ paginate.next.title }}</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>

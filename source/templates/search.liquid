@@ -1,11 +1,14 @@
-<h1>SEARCH</h1>
+<h1>Search</h1>
 
-<form action="/search" method="get" class="search form" role="search">
+<form action="/search" method="get" class="search form">
 
-  <div class="form__group">
+  <div class="form__group" role="search">
     <div class="form__field">
-      <input type="search" name="q" placeholder="Search …" value="{{ search.terms | escape }}" autofocus>
+      <label for="site_search" class="visually-hidden">
+        Search Site:
+      </label>
       <input type="submit" value="Search">
+      <input type="search" id="site_search" name="q" placeholder="Search …" value="{{ search.terms | escape }}" autofocus>
     </div>
   </div>
 
@@ -18,7 +21,7 @@
       {% for result in search.results %}
         <li>
           <div class="search__result">
-            <h3><a href="{{ result.url }}">{{ result.title | highlight: search.terms }}</a></h3>
+            <h2 class="search__result__title"><a href="{{ result.url }}">{{ result.title | highlight: search.terms }}</a></h2>
             <div class="result__description">
               {{ result.content | highlight: search.terms }}
             </div>

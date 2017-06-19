@@ -1,4 +1,4 @@
-<h1>CART</h1>
+<h1>Cart</h1>
 
 {% if cart.item_count > 0 %}
   <form action="/cart" method="post" class="cart">
@@ -24,7 +24,7 @@
           <tr>
             <td>
               <a href="/cart/change?line={{ forloop.index }}&quantity=0">
-                <svg class="icon">
+                <svg class="icon" aria-hidden="true">
                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ 'icons.svg' | asset_url }}#x-mark" />
                 </svg>
                 <span class="visually-hidden">Remove</span>
@@ -35,7 +35,12 @@
               <a href="{{ item.url }}">{{ item.product.title }}</a>
             </td>
             <td>
-              <input type="number" name="updates[]" value="{{ item.quantity}}" min="0" pattern="[0-9]*">
+              <label>
+                <span class="visually-hidden">
+                  Choose Amount:
+                </span>
+                <input type="number" name="updates[]" value="{{ item.quantity}}" min="0" pattern="[0-9]*">
+              </label>
             </td>
             <td>
               {{ item.price | money }}
@@ -53,5 +58,7 @@
 
   </form>
 {% else %}
-  Your cart is currently empty.
+  <p>
+    Your cart is currently empty.
+  </p>
 {% endif %}

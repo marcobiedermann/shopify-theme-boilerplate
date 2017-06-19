@@ -4,7 +4,7 @@
     <div class="media__object media__object--left">
 
       {% if product.featured_image %}
-        <img src="{{ product.featured_image | img_url: '600x600' }}">
+        <img src="{{ product.featured_image | img_url: '600x600' }}" alt="">
       {% endif %}
 
     </div>
@@ -29,6 +29,9 @@
 
       <form action="/cart/add" method="post" enctype="multipart/form-data">
 
+        <label for="product_variant_select" class="visually-hidden">
+          Select Type:
+        </label>
         <select name="id">
           {% for variant in product.variants %}
             <option value="{{ variant.id }}">{{ variant.title }}</option>
@@ -48,7 +51,7 @@
 
 
   {% if product.images %}
-    <ul class="product__images">
+    <ul class="product__images" aria-label="{{ product.title }} Images">
       {% for image in product.images %}
         <li>
           <img src="{{ image | img_url }}" class="product__image">
@@ -62,7 +65,7 @@
       {% for variant in product.variants %}
         <li>
           <div class="product__variant">
-            <h4>{{ variant.title }}</h4>
+            <h2 class="product__variant__title">{{ variant.title }}</h2>
             <img src="{{ variant.featured_image.src | img_url }}">
           </div>
         </li>
