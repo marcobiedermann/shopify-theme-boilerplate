@@ -1,6 +1,6 @@
 {% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
-  <a href="/" title="Home">Home</a>
 <nav class="breadcrumb" aria-label="breadcrumb">
+  <a href="/">Home</a>
   {% if template contains 'page' %}
     <span aria-hidden="true">&rsaquo;</span>
     <span>{{ page.title }}</span>
