@@ -17,9 +17,12 @@
 
       <div class="form__group">
         <div class="form__field">
-          <input type="email" name="contact[email]" value="{% if customer %}{{ customer.email }}{% endif %}" autocorrect="off"
+          <label for="newsletter-email" class="visually-hidden">
+            Your email
+          </label>
+          <input type="email" id="newsletter-email" name="contact[email]" value="{% if customer %}{{ customer.email }}{% endif %}" autocorrect="off"
             autocapitalize="off">
-            <input type="submit" name="commit" value="Subscribe">
+          <input type="submit" name="commit" value="Subscribe">
         </div>
       </div>
 

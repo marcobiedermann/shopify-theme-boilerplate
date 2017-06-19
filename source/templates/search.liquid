@@ -4,8 +4,11 @@
 
   <div class="form__group">
     <div class="form__field">
-      <input type="search" name="q" placeholder="Search …" value="{{ search.terms | escape }}" autofocus>
+      <label for="site_search" class="visually-hidden">
+        Search Site:
+      </label>
       <input type="submit" value="Search">
+      <input type="search" id="site_search" name="q" placeholder="Search …" value="{{ search.terms | escape }}" autofocus>
     </div>
   </div>
 

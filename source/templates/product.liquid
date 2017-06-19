@@ -29,6 +29,9 @@
 
       <form action="/cart/add" method="post" enctype="multipart/form-data">
 
+        <label for="product_variant_select" class="visually-hidden">
+          Select Type:
+        </label>
         <select name="id">
           {% for variant in product.variants %}
             <option value="{{ variant.id }}">{{ variant.title }}</option>
