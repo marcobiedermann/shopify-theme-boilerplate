@@ -36,7 +36,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "lazysizes": "^3.0.0",
+    "lazysizes": "^5.1.0",
     "svg4everybody": "^2.1.9"
   }
 }
