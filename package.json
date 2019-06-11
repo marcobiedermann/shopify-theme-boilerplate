@@ -18,7 +18,7 @@
     "babelify": "^7.3.0",
     "browserify": "^16.2.3",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.7.0",
+    "gulp-clean-css": "^4.2.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^3.3.0",
     "gulp-jsonlint": "^1.2.0",
