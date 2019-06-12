@@ -14,7 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "babel-preset-env": "^1.6.0",
-    "babel-register": "^6.24.1",
+    "babel-register": "^6.26.0",
     "babelify": "^7.3.0",
     "browserify": "^16.2.3",
     "gulp": "^3.9.1",
