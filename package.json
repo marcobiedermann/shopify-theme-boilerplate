@@ -31,7 +31,7 @@
     "gulp-zip": "^4.2.0",
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^10.0.0",
-    "stylelint": "^7.13.0",
+    "stylelint": "^13.3.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
